@@ -1,8 +1,6 @@
-<?php include __DIR__ . '../../database/database.php';
+<?php include __DIR__ . '/../../database/database.php';
 session_start();
-$queryGetuser = "SELECT * FROM users";
-$stmt = $pdo->query($queryGetuser);
-$users = $stmt->fetchAll();
+
 $nameErr = null;
 $passwordErr = null;
 if (isset($_SESSION['user'])) {
@@ -11,7 +9,9 @@ if (isset($_SESSION['user'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $password = $_POST['password'];
-
+    $queryGetuser = "SELECT * FROM users";
+    $stmt = $pdo->query($queryGetuser);
+    $users = $stmt->fetchAll();
     if (isset($name) && isset($password)) {
         foreach ($users as $user) {
             if ($name == $user['name'] && $password == $user['password']) {
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Logout
 
 if (isset($_GET['logout'])) {
-    $_SESSION['user'] = null;
+    unset($_SESSION['user']);
     header('Location: login.php');
 }
 

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '../../database/database.php';
+include __DIR__ . '/../../database/database.php';
 session_start();
 if ($_SESSION['user'] == null) {
     header('location: /admin/templates/login.php');

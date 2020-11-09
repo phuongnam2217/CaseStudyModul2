@@ -49,7 +49,6 @@
                                                 <td><?= $category['product_line'] ?></td>
                                                 <td><?= $category['description'] ?></td>
                                                 <td>
-                                                    <a href="" class="btn btn-sm btn-primary">Edit</a>
                                                     <a href="display-category.php?deleteCategory=<?= $category['product_line'] ?>" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>

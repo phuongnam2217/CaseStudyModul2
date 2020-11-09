@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['user'] == null) {
+if (empty($_SESSION['user'])) {
     header('location: admin/templates/login.php');
 }
 

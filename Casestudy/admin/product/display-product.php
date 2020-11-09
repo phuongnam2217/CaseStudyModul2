@@ -60,7 +60,7 @@
                                                 <td class="d-flex">
                                                     <a href="" class="btn btn-sn btn-outline-primary">Chi Tiết</a>
                                                     <a href="edit-product.php?id=<?= $product['product_id'] ?>" class="btn btn-sn btn-outline-success">Edit</a>
-                                                    <a href="" class="btn btn-sn btn-outline-danger">Delete</a>
+                                                    <a href="display-product.php?id=<?= $product['product_id']; ?>" class="btn btn-sn btn-outline-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
