@@ -4,8 +4,8 @@ Tên Đề tài: Trang quản lí bán hàng.
 =======
 Tên Đề tài: Trang quàn lí bán hàng.
 
-Bao gồm các trang: quản trị và trang danh cho người dùng.
--Trang dashboard:
+Bao gồm các trang: quản trị và trang danh cho người dùng:
+-Trang dashboard.
 
   +Thêm sửa xóa sản phẩm.
   +Thông tin khách hàng.
