@@ -21,20 +21,20 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
     ++Sản phẩm bán chạy.
     ++Footer
 
-  +Trang sản phẩm theo từng danh mục riêng.
+  +Trang sản phẩm theo từng danh mục riêng:
 
     ++Navbar
     ++Sản phẩm của danh mục đó.
     ++Footer.
 
-  +Trang sản phẩm chi tiết.
+  +Trang sản phẩm chi tiết:
   
    ++Navbar.
    ++Ảnh sản phẩm.
    ++Chi tiết sản phẩm.
    ++Footer.
-
-  +Trang giỏ hàng.
+   
+  +Trang giỏ hàng:
 
     ++Navbar.
     ++Thông tin các sản phẩm trong giỏ hàng.
@@ -47,9 +47,9 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
     ++Thông tin giỏ hàng.
     ++Footer.
 
-<<<<<<< HEAD
-  +Trang đăng ký, đăng nhập.  
-=======
 
->>>>>>> d5fb528abbeb00ea3307a9bbf14665671db74e8c
+  +Trang đăng ký, đăng nhập.  
+
+
+
 .<img src="er_casestudy.png">.
