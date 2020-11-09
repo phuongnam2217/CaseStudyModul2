@@ -3,7 +3,7 @@
 Tên Đề tài: Trang quản lí bán hàng.
 =======
 Tên Đề tài: Trang quàn lí bán hàng.
->>>>>>> d5fb528abbeb00ea3307a9bbf14665671db74e8c
+
 Bao gồm các trang: quản trị và trang danh cho người dùng.
 -Trang dashboard:
 
@@ -14,6 +14,7 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
 -Trang dành cho người dùng.
 
   +Trang chủ:
+  
     ++Navbar.
     ++Sản phẩm mới.
     ++Sản phẩmlượt xem nhiều nhất.
@@ -27,7 +28,7 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
     ++Footer.
 
   +Trang sản phẩm chi tiết.
-
+  
    ++Navbar.
    ++Ảnh sản phẩm.
    ++Chi tiết sản phẩm.
