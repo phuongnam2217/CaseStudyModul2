@@ -5,8 +5,6 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
   +Thêm sửa xóa sản phẩm.
   +Thông tin khách hàng.
   +Thêm sửa xóa trạng thái của các order.
-  
-  
 -Trang dành cho người dùng.
   +Trang chủ:
     ++Navbar.
