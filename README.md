@@ -1,5 +1,5 @@
 # CaseStudyModul_2
-Tên Đề tài: Trang quàn lí bán hàng
+Tên Đề tài: Trang quàn lí bán hàng.
 Bao gồm các trang: quản trị và trang danh cho người dùng.
 -Trang dashboard:
   +Thêm sửa xóa sản phẩm.
