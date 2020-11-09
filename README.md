@@ -1,5 +1,9 @@
 # CaseStudyModul_2
+<<<<<<< HEAD
 Tên Đề tài: Trang quản lí bán hàng.
+=======
+Tên Đề tài: Trang quàn lí bán hàng.
+>>>>>>> d5fb528abbeb00ea3307a9bbf14665671db74e8c
 Bao gồm các trang: quản trị và trang danh cho người dùng.
 -Trang dashboard:
 
@@ -42,4 +46,8 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
     ++Thông tin giỏ hàng.
     ++Footer.
 
+<<<<<<< HEAD
   +Trang đăng ký, đăng nhập.  
+=======
+
+>>>>>>> d5fb528abbeb00ea3307a9bbf14665671db74e8c
