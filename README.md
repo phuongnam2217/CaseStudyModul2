@@ -32,4 +32,4 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
     ++Footer.
   +Trang đăng ký, đăng nhập.  
 
-.<img src="er_casestudy.png">.
+.<img src="er_casestudy.png">
