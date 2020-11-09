@@ -51,3 +51,4 @@ Bao gồm các trang: quản trị và trang danh cho người dùng.
 =======
 
 >>>>>>> d5fb528abbeb00ea3307a9bbf14665671db74e8c
+.<img src="er_casestudy.png">.
