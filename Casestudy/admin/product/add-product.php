@@ -40,12 +40,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Mô tả</label>
-                    <div class="col-sm-9">
-                        <textarea name="description" class="form-control" placeholder="Mô tả sản phẩm"></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Ảnh sản phẩm 1</label>
                     <div class="col-sm-9">
                         <textarea name="image1" class="form-control" placeholder="Ảnh sản phẩm 1" required></textarea>
@@ -54,7 +48,7 @@
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Ảnh sản phẩm 2</label>
                     <div class="col-sm-9">
-                        <textarea name="image2" class="form-control" placeholder="Ảnh sản phẩm 2" required></textarea>
+                        <textarea name="image2" class="form-control" placeholder="Ảnh sản phẩm 2"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">

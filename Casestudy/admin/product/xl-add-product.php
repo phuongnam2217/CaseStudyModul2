@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $image2 = $_POST['image2'];
     $stock = $_POST['stock'];
 
-    $queryAdd = "INSERT INTO products (product_name, product_line, slug, price, description , image1, image2, stock)
-    VALUES ('$product_name','$product_line','$slug','$price','$description' ,'$image1','$image2','$stock');";
+    $queryAdd = "INSERT INTO products (product_name, product_line, slug, price , image1, image2, stock)
+    VALUES ('$product_name','$product_line','$slug','$price','$image1','$image2','$stock');";
     $pdo->query($queryAdd);
 
-    header("Location: display-product.php");
+    // header("Location: display-product.php");
 }
