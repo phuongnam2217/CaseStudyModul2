@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/asset/css/base.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,700&display=swap" rel="stylesheet" />
-    <title>CaseStudy Modul 2</title>
+    <title>CaseStudy Module 2</title>
 </head>
 
 <body>
@@ -38,12 +38,11 @@
                             <?php else : ?>
                                 <li class="nav-item dropdown mx-4">
                                     <a class="nav-link dropdown-toggle header-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dropdown
+                                        Hello,<?= $_SESSION['customer']['name'] ?>
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item header-link" href="#">Action</a>
-                                        <a class="dropdown-item header-link" href="#">Another action</a>
-                                        <a class="dropdown-item header-link" href="#">Something else here</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100%;text-align: center;">
+                                        <a class="dropdown-item header-link" href="#">Setting</a>
+                                        <a class="dropdown-item header-link" href="/account/logout.php?logout">Logout</a>
                                     </div>
                                 </li>
                             <?php endif; ?>

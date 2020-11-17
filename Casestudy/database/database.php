@@ -25,3 +25,11 @@ function slugify($str)
     $str = preg_replace('/([\s]+)/', '-', $str);
     return $str;
 }
+class Products 
+{   
+    
+    public function __construct()
+    {
+        
+    }
+}

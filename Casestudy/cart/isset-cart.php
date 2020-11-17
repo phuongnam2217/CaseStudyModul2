@@ -5,7 +5,7 @@
                 <h3 class="titlet">GIỎ HÀNG</h3>
             </div>
             <div class="cart-content">
-                <table style="width:80%;font-size:1.6rem" class="table table-hover">
+                <table style="width:100%;font-size:1.6rem" class="table table-hover">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Sản phẩm</th>
@@ -65,7 +65,7 @@
                     <a href="/index" class="btn insert-cart">Tiếp tục mua</a>
                 </div>
                 <div class="card-pay">
-                    <a href="" class="btn btn insert-cart">Thanh toán</a>
+                    <a href="/checkout/" class="btn btn insert-cart">Thanh toán</a>
                 </div>
             </div>
         </div>

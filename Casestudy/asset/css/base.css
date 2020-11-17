@@ -1,7 +1,7 @@
 * {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
   font-family: "Roboto";
   font-weight: 300;
@@ -56,7 +56,7 @@ a:hover {
 }
 .header-navbar-item {
   /* padding: 6px 10px; */
-  margin: 0 8px;
+  margin: 0 2px;
   text-align: left;
   display: flex;
   align-items: center;

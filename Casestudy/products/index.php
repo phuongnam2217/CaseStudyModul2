@@ -58,7 +58,7 @@ if (isset($_POST['product_id']) && isset($_POST['qty'])) {
                     <h3 class="product-item-price" style="font-weight: 300;"><?= number_format($product['price']) ?><ins>đ</ins></h3>
                 </div>
                 <div class="product-item product-item-form">
-                    <form action="<?= $product_id ?>" method="post">
+                    <form action="" method="post">
                         <div class="product-quality">
                             <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
                             <span class="product-quality-btn" id="giam"><i class="fas fa-arrow-left"></i></span>
