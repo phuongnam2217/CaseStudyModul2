@@ -18,10 +18,7 @@
                     </thead>
                     <tbody>
                         <?php foreach ($_SESSION['cart'] as $key => $value) : ?>
-                            <?php $query = "SELECT * FROM products WHERE product_id = '$key'";
-                            $stmt = $pdo->query($query);
-                            $product = $stmt->fetch();
-                            ?>
+                            <?php $product = $Pro->getId($key); ?>
                             <tr>
                                 <td>
                                     <p><?= $product['product_name'] ?></p>

@@ -3,32 +3,24 @@ session_start();
 $product_id = $_SERVER['REQUEST_URI'];
 $array = explode("/", $product_id);
 $slug = $array[2];
-$query = "SELECT * FROM products WHERE slug = '$slug';";
-$stmt = $pdo->query($query);
-$product = $stmt->fetch();
+$product = $Pro->getSlug($slug);
+$Pro->increase("view", "slug", $slug);
 if (isset($_POST['product_id']) && isset($_POST['qty'])) {
     $id = $_POST['product_id'];
     $qty = $_POST['qty'];
-    $queryCart = "SELECT * FROM products WHERE product_id = '$id';";
-    $stmt = $pdo->query($queryCart);
-    $product = $stmt->fetch();
+
+    $product = $Pro->getId($id);
     if (isset($product)) {
         if (isset($_SESSION['cart'])) {
             if (isset($_SESSION['cart'][$id])) {
-                $_SESSION['cart'][$id]['name'] = $product['product_name'];
-                $_SESSION['cart'][$id]['image'] = $product['image1'];
-                $_SESSION['cart'][$id]['price'] = $product['price'];
+
                 $_SESSION['cart'][$id]['qty'] += $qty;
             } else {
-                $_SESSION['cart'][$id]['name'] = $product['product_name'];
-                $_SESSION['cart'][$id]['image'] = $product['image1'];
-                $_SESSION['cart'][$id]['price'] = $product['price'];
+
                 $_SESSION['cart'][$id]['qty'] = $qty;
             }
         } else {
-            $_SESSION['cart'][$id]['name'] = $product['product_name'];
-            $_SESSION['cart'][$id]['image'] = $product['image1'];
-            $_SESSION['cart'][$id]['price'] = $product['price'];
+
             $_SESSION['cart'][$id]['qty'] = $qty;
         }
     }

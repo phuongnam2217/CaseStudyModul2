@@ -2,22 +2,11 @@
 session_start();
 include_once __DIR__ . "/cart/add-cart.php";
 // ProDuct New
-$getProductNew = "SELECT * FROM products ORDER BY update_at DESC LIMIT 0,4;";
-$stmt = $pdo->query($getProductNew);
-$productNew = $stmt->fetchAll();
-
-// Product Tops
-$getProductTop = "SELECT * FROM products WHERE product_line = 'Tops' ORDER BY update_at DESC LIMIT 0,4;";
-$stmt = $pdo->query($getProductTop);
-$productTop = $stmt->fetchAll();
+$productNew = $Pro->getBySelect("create_at", 8);
 // Product Hots
-$getProductHot = "SELECT * FROM products ORDER BY view DESC LIMIT 0,4;";
-$stmt = $pdo->query($getProductHot);
-$productHot = $stmt->fetchAll();
-// Product Hots
-$getProductSelling = "SELECT * FROM products ORDER BY sold DESC LIMIT 0,4;";
-$stmt = $pdo->query($getProductSelling);
-$productSelling = $stmt->fetchAll();
+$productHot = $Pro->getBySelect("view", 8);
+// Product Selling
+$productSelling = $Pro->getBySelect("sold", 8);
 ?>
 <?php include __DIR__ . "/layout/header.php"; ?>
 <div class="content">
@@ -120,7 +109,7 @@ $productSelling = $stmt->fetchAll();
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="layout-arrival">
+        <!-- <div class="layout-arrival">
             <div class="arrival-tittle">
                 <h3 class="arrival-tittle-font"> TOPS </h3>
             </div>
@@ -143,7 +132,7 @@ $productSelling = $stmt->fetchAll();
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
-<?php include __DIR__ . "/layout/footer.php"; ?>
+<?php require_once __DIR__ . "/layout/footer.php"; ?>

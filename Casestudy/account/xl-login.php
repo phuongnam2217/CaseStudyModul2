@@ -10,7 +10,7 @@ $customers = $stmt->fetchAll();
 foreach ($customers as $customer) {
     if ($email == $customer['email'] && password_verify($pass, $customer['password'])) {
         $_SESSION['customer'] = $customer;
-        header("Location: /index.php");
+        header("Location: setting.php");
     }
 }
 if (empty($_SESSION['customer'])) {

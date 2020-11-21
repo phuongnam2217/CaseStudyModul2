@@ -2,9 +2,7 @@
 session_start();
 include __DIR__ . "/../cart/add-cart.php";
 $search = isset($_POST['search']) ? $_POST['search'] : "";
-$query = "SELECT * FROM products WHERE product_name LIKE '%$search%'";
-$stmt = $pdo->query($query);
-$productTop = $stmt->fetchAll();
+$products = $Pro->search($search);
 ?>
 <?php include __DIR__ . "/../layout/header.php"; ?>
 <div class="content">
@@ -12,7 +10,7 @@ $productTop = $stmt->fetchAll();
         <div class="layout-arrival">
             <hr>
             <div class="arrival-product">
-                <?php foreach ($productTop as $value) : ?>
+                <?php foreach ($products as $value) : ?>
                     <div class="col-md-3 col-sm-6 col-xs-6 product-column">
                         <div class="product-top">
                             <a href="/products/<?= $value['slug'] ?>" class="product-link">

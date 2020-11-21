@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . "/../database/database.php";
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -11,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($pass1 == $pass2) {
         $pass = password_hash($pass1, PASSWORD_DEFAULT);
     } else {
-        $passErr = "Mật khẩu và Nhập lại Mật khẩu chưa giống nhau";
+        $_SESSION['passErr'] = "Mật khẩu và Nhập lại Mật khẩu chưa giống nhau";
         $hasErr = true;
     }
     $query = "SELECT * FROM customers";
@@ -19,20 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $customers = $stmt->fetchAll();
     foreach ($customers as $customer) {
         if ($email == $customer['email']) {
-            $emailErr = "Email đã tồn tại vui lòng nhập email khác";
+            $_SESSION['emailErr'] = "Email đã tồn tại vui lòng nhập email khác";
             $hasErr = true;
         }
     }
     if ($hasErr == false) {
-        $queryInsert = "INSERT INTO customers (name,password,email,address,phone) VALUES (?,?,?,?,?);";
-        $stmt = $pdo->prepare($queryInsert);
-        $stmt->bindParam(1, $name);
-        $stmt->bindParam(2, $pass);
-        $stmt->bindParam(3, $email);
-        $stmt->bindParam(4, $address);
-        $stmt->bindParam(5, $phone);
-        $stmt->execute();
-        header("Location: login.php");
+        $customerDB->create($name, $pass, $email, $phone, $address);
+        $customer_id = $customerDB->getLastInsert();
+        $_SESSION['customer'] = $customerDB->getById($customer_id);
+        header("Location: setting.php");
     } else {
         header("Location: login.php");
     }

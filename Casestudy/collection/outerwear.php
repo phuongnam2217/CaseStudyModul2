@@ -1,12 +1,8 @@
 <?php include __DIR__ . "/../database/database.php";
 session_start();
 include __DIR__ . "/../cart/add-cart.php";
-// Product Tops
-// $getProductTop = "SELECT * FROM products WHERE product_line = 'Tops';";
-// $stmt = $pdo->query($getProductTop);
-// $productTop = $stmt->fetchAll();
 // Tìm tổng số record
-$result = "SELECT count(product_id) as total FROM products WHERE product_line = 'Tops';";
+$result = "SELECT count(product_id) as total FROM products WHERE product_line = 'Outerwear';";
 $row = $pdo->query($result);
 $row = $row->fetch();
 $total_records = $row['total'];
@@ -26,9 +22,7 @@ if ($current_page > $total_page) {
 $start = ($current_page - 1) * $limit;
 // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
 // Có limit và start rồi thì truy vấn CSDL lấy danh sách tin tức
-$getProductOuterwear = "SELECT * FROM products WHERE product_line = 'Outerwear' LIMIT $start, $limit;";
-$stmt = $pdo->query($getProductOuterwear);
-$productOuterwear = $stmt->fetchAll();
+$productOuterwear = $Pro->getByCategory("Outerwear", $start, $limit);
 ?>
 <?php include __DIR__ . "/../layout/header.php"; ?>
 <div class="content">

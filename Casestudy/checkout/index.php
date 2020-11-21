@@ -11,25 +11,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
     $phone = $_POST['phone'];
 
-    $queryUpdate = "UPDATE customers SET name = '$name', address = '$address', phone = '$phone' WHERE customer_id = '$id';";
-    $pdo->query($queryUpdate);
-    $queryInsertOrder = "INSERT INTO orders (customer_id) VALUES ('$id');";
-    $pdo->query($queryInsertOrder);
-    $order_id = $pdo->lastInsertId();
-    foreach ($_SESSION['cart'] as $key => $value) {
-        $query = "SELECT * FROM products WHERE product_id = '$key';";
-        $stmt = $pdo->query($query);
-        $product = $stmt->fetch();
-        $price = $product['price'];
-        $qty = $value['qty'];
-        $queryInsertOrderDetails = "INSERT INTO orderdetails (order_id,product_id,quantityOrdered,priceEach)
-         VALUES ('$order_id','$key','$qty','$price');";
-        $pdo->query($queryInsertOrderDetails);
+
+    if (isset($_SESSION['cart'])) {
+        $customerDB->updateInfo($name, $address, $phone, $id);
+        $orderDB->create($id);
+        $order_id = $orderDB->getLastInsertId();
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $product = $Pro->getId($key);
+            $price = $product['price'];
+            $qty = $value['qty'];
+            // Tăng sản phẩm đã bán
+            $Pro->increase("sold", "product_id", $key, $qty);
+            // Giảm số lượng sản phẩm;
+            $Pro->decrease("stock", $key, $qty);
+            // Insert vào database
+            $orderDetailDB->create($order_id, $key, $qty, $price);
+        }
+        unset($_SESSION['cart']);
+
+        $_SESSION['customer'] = $customerDB->getById($id);
+        $_SESSION['success'] = "Bạn đã order thành công chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất";
+    } else {
+        $_SESSION['success'] = "Vui lòng thêm sản phẩm vào giỏ hàng";
     }
-    unset($_SESSION['cart']);
-    $queryCustomer = "SELECT * FROM customers WHERE customer_id = $id";
-    $stmt = $pdo->query($queryCustomer);
-    $_SESSION['customer'] = $stmt->fetch();
 }
 
 ?>
@@ -62,6 +66,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="">
                         <a href="/cart/" style="font-size: 1.5rem;">Quay lại giỏ hàng</a>
                     </div>
+                    <div class="p3" style="font-size: 1.6rem;color:red">
+                        <h3>
+                            <?php if (isset($_SESSION['success'])) {
+                                echo $_SESSION['success'];
+                            };
+                            unset($_SESSION['success']);
+                            ?>
+                        </h3>
+                    </div>
                     <div class="my-5">
                         <button type="submit" class="form-control form-control-lg form-input btn btn-primary">Hoàn tất đơn hàng</button>
                     </div>
@@ -76,32 +89,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <h3 class="text-center pb-5" style="font-size: 2.5rem;">Cart Infomation</h3>
                                 </thead>
                                 <tbody>
-                                    <?php $sumPrice = 0;
-                                    foreach ($_SESSION['cart'] as $key => $value) : ?>
-                                        <?php $query = "SELECT * FROM products WHERE product_id = '$key'";
-                                        $stmt = $pdo->query($query);
-                                        $product = $stmt->fetch();
-                                        ?>
-                                        <tr>
-                                            <td class="order-image">
-                                                <div class="order-thumbnail">
-                                                    <div class="order-thumbnail-wraper">
-                                                        <img class="order-thumbnail-image" src="<?= $product['image1'] ?>" alt="">
+                                    <?php if (isset($_SESSION['cart'])) : ?>
+                                        <?php $sumPrice = 0;
+                                        foreach ($_SESSION['cart'] as $key => $value) : ?>
+                                            <?php $query = "SELECT * FROM products WHERE product_id = '$key'";
+                                            $stmt = $pdo->query($query);
+                                            $product = $stmt->fetch();
+                                            ?>
+                                            <tr>
+                                                <td class="order-image">
+                                                    <div class="order-thumbnail">
+                                                        <div class="order-thumbnail-wraper">
+                                                            <img class="order-thumbnail-image" src="<?= $product['image1'] ?>" alt="">
+                                                        </div>
+                                                        <span class="order-thumbnail-quantily"><?= $value['qty']; ?></span>
                                                     </div>
-                                                    <span class="order-thumbnail-quantily"><?= $value['qty']; ?></span>
-                                                </div>
-                                            </td>
-                                            <td class="order-description">
-                                                <span class="order-description-name"><?= $product['product_name'] ?></span>
-                                            </td>
-                                            <td>
-                                                <span class="order-description-name">
-                                                    <?php echo number_format($total = $product['price'] * $value['qty']);
-                                                    $sumPrice += $total;
-                                                    ?>₫</span>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="order-description">
+                                                    <span class="order-description-name"><?= $product['product_name'] ?></span>
+                                                </td>
+                                                <td>
+                                                    <span class="order-description-name">
+                                                        <?php echo number_format($total = $product['price'] * $value['qty']);
+                                                        $sumPrice += $total;
+                                                        ?>₫</span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                             <hr>
@@ -109,7 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="order-total">
                             <div class="total-top d-flex justify-content-between p-3">
                                 <span style="font-size: 1.6rem;">Tạm Tính</span>
-                                <span style="font-size: 1.6rem;"><?= $sumPrice ?></span>
+                                <span style="font-size: 1.6rem;"><?php if (isset($sumPrice)) {
+                                                                        echo $sumPrice;
+                                                                    } ?></span>
                             </div>
                             <div class="total-top d-flex justify-content-between p-3">
                                 <span style="font-size: 1.6rem;">Phí vận chuyển</span>
@@ -119,7 +136,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <hr>
                         <div class="total-top d-flex justify-content-between p-3">
                             <span style="font-size: 2rem;">Tổng cộng</span>
-                            <span style="font-size: 2rem;"><?= $sumPrice ?></span>
+                            <span style="font-size: 2rem;"><?php if (isset($sumPrice)) {
+                                                                echo $sumPrice;
+                                                            } ?></span>
                         </div>
                     </div>
                 </div>

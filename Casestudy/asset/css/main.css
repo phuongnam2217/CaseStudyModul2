@@ -361,6 +361,27 @@
 .liner-or span {
   font-size: 2rem;
 }
+/* Trang Setting */
+.account {
+  background-color: black;
+  padding: 10px 5px;
+}
+.user {
+  color: white;
+}
+.user span {
+  font-size: 1.6rem;
+}
+.user h4 {
+  font-size: 2rem;
+}
+.link-account li a {
+  color: black;
+  font-size: 1.6rem;
+  padding: 10px 0;
+  display: block;
+}
+
 @media (max-width: 800px) {
   .product-column {
     flex: 50%;

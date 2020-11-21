@@ -7,19 +7,14 @@ if (isset($_SESSION['user'])) {
     header('Location: /admin/index.php');
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
-    $queryGetuser = "SELECT * FROM users";
-    $stmt = $pdo->query($queryGetuser);
-    $users = $stmt->fetchAll();
-    if (isset($name) && isset($password)) {
-        foreach ($users as $user) {
-            if ($name == $user['name'] && $password == $user['password']) {
-                $_SESSION['user'] = $user;
-            }
+    $users = $userDB->getAll();
+    foreach ($users as $user) {
+        if ($email == $user['email'] && password_verify($password, $user['password'])) {
+            $_SESSION['user'] = $user;
         }
     }
-
     if (isset($_SESSION['user'])) {
         header('Location: /admin/index.php');
     } else {
@@ -65,7 +60,7 @@ if (isset($_GET['logout'])) {
                                     <form action="" method="post">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                            <input class="form-control py-4" name="name" id="inputEmailAddress" type="user" placeholder="Enter email address" required />
+                                            <input class="form-control py-4" name="email" id="inputEmailAddress" type="email" placeholder="Enter email address" required />
                                         </div>
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputPassword">Password</label>

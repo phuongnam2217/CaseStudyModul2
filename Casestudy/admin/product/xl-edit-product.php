@@ -6,9 +6,7 @@ $stmt = $pdo->query($getCategory);
 $categoryList = $stmt->fetchAll();
 // Get 1 Product
 $id = $_GET['id'];
-$getProduct = "SELECT * FROM products WHERE product_id = '$id';";
-$stmt = $pdo->query($getProduct);
-$product = $stmt->fetch();
+$product = $Pro->getId($id);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $product_name = $_POST['product_name'];
   $product_line = $_POST['product_line'];
@@ -19,11 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $image2 = $_POST['image2'];
   $stock = $_POST['stock'];
 
-  $queryAdd = "UPDATE products
-     SET product_name = '$product_name', product_line = '$product_line', slug = '$slug',
-      price = '$price', image1 = '$image1', image2 = '$image2', stock = '$stock' 
-      WHERE product_id = '$id';";
-
-  $pdo->query($queryAdd);
+  $Pro->update($product_name, $product_line, $slug, $price, $image1, $image2, $stock, $id);
   header("Location: display-product.php");
 }

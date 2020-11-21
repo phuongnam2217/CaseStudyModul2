@@ -52,6 +52,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Mô tả</label>
+                    <div class="col-sm-9">
+                        <textarea name="description" class="form-control" placeholder="Mô tả sản phẩm"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Số lượng sản phẩm</label>
                     <div class="col-sm-9">
                         <input type="text" name="stock" class="form-control" placeholder="Nhập số lượng sản phẩm" required>

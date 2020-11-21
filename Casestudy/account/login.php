@@ -53,14 +53,15 @@
                                     </div>
                                     <input type="text" name="name" class="form-control form-control-lg form-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User Name" required>
                                 </div>
-                                <div class="text-danger"><?= $nameErr ?? '' ?></div>
+
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-envelope fa-lg"></i></span>
                                     </div>
                                     <input type="email" name="email" class="form-control form-control-lg form-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                                 </div>
-                                <div style="font-size: 2rem;" class="text-danger text-center"><?= $emailErr ?? "" ?></div>
+                                <div style="font-size: 2rem;" class="text-danger text-center"><?= $_SESSION['emailErr'] ?? "";
+                                                                                                unset($_SESSION['emailErr']) ?></div>
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key fa-lg"></i></span>
@@ -73,7 +74,8 @@
                                     </div>
                                     <input type="password" name="pass2" class="form-control form-control-lg form-input" id="exampleInputPassword1" placeholder="Re-enter Password" required>
                                 </div>
-                                <div style="font-size: 1.4rem;" class="text-danger text-center"><?= $passErr ?? "" ?></div>
+                                <div style="font-size: 1.4rem;" class="text-danger text-center"><?= $_SESSION['passErr'] ?? "";
+                                                                                                unset($_SESSION['passErr']) ?></div>
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-address-card fa-lg"></i></span>

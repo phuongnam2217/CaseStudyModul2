@@ -1,25 +1,25 @@
-<?php include __DIR__ . '/xl-display-category.php'; ?>
+<?php require_once "xl-display.php"; ?>
 <?php include __DIR__ . '/../layout/header.php';  ?>
 <!-- Content -->
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Quản lí thể loại</h1>
+        <h1 class="mt-4">Quản lí khách hàng</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard</li>
-            <li class="breadcrumb-item active">Category</li>
+            <li class="breadcrumb-item active"><a href="../index.php">Menu</a></li>
+            <li class="breadcrumb-item active"><a href="">Customer</a></li>
         </ol>
         <div class="card mb-4">
             <div class="card-header">
                 <svg class="svg-inline--fa fa-table fa-w-16 mr-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="table" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
                     <path fill="currentColor" d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path>
                 </svg><!-- <i class="fas fa-table mr-1"></i> Font Awesome fontawesome.com -->
-                Danh sách thể loại
-                <a href="add-category.php" class="btn btn-sm btn-primary">Thêm thể loại</a>
+                Danh sách khách hàng
+                <!-- <a href="add-product.php" class="btn btn-primary">Thêm sản phẩm</a> -->
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        <div class="row" style="display:none">
+                        <div class="row" style="display: none;">
                             <div class="col-sm-12 col-md-6">
                                 <div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
                                             <option value="10">10</option>
@@ -37,20 +37,24 @@
                                 <table class="table table-bordered table-hover dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 97px;">Tên thể loại</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 157px;">Mô tả</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 68px;"></th>
-
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 38px;">Mã khách hàng</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 120px;">Tên khách hàng</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 94px;">Email khách hàng</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30px;">Số điện thoại</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 38px;">Địa chỉ</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 58px;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($categoryList as $category) : ?>
+                                        <?php foreach ($customers as $customer) : ?>
                                             <tr>
-                                                <td><?= $category['product_line'] ?></td>
-                                                <td><?= $category['description'] ?></td>
+                                                <td><?= $customer['customer_id'] ?></td>
+                                                <td><?= $customer['name'] ?></td>
+                                                <td><?= $customer['email'] ?></td>
+                                                <td><?= $customer['phone'] ?></td>
+                                                <td><?= $customer['address'] ?></td>
                                                 <td>
-                                                    <a href="edit-category.php?EditCategory=<?= $category['product_line'] ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                    <a href="display-category.php?deleteCategory=<?= $category['product_line'] ?>" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="display-customer.php?delete=<?= $customer['customer_id'] ?>" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

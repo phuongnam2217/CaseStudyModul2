@@ -27,12 +27,12 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item header-navbar-item"><a href="/index.php" class="header-link">HOME</a></li>
-                            <li class="nav-item header-navbar-item"><a href="/collection/tops.php" class="header-link">TOPS</a></li>
-                            <li class="nav-item header-navbar-item"><a href="/collection/outerwear.php" class="header-link">OUTERWEAR</a></li>
-                            <li class="nav-item header-navbar-item"><a href="" class="header-link">BOTTOMS</a></li>
-                            <li class="nav-item header-navbar-item"><a href="" class="header-link">ACCESSORIES</a></li>
-                            <li class="nav-item header-navbar-item"><a href="/collection/aboutus.php" class="header-link">ABOUT US</a></li>
+                            <li class="nav-item header-navbar-item"><a href="../index.php" class="header-link">HOME</a></li>
+                            <li class="nav-item header-navbar-item"><a href="../collection/tops.php" class="header-link">TOPS</a></li>
+                            <li class="nav-item header-navbar-item"><a href="../collection/outerwear.php" class="header-link">OUTERWEAR</a></li>
+                            <li class="nav-item header-navbar-item"><a href="../collection/bottom.php" class="header-link">BOTTOMS</a></li>
+                            <li class="nav-item header-navbar-item"><a href="../collection/accessories.php" class="header-link">ACCESSORIES</a></li>
+                            <li class="nav-item header-navbar-item"><a href="../collection/aboutus.php" class="header-link">ABOUT US</a></li>
                             <?php if (!isset($_SESSION['customer'])) : ?>
                                 <li class="nav-item header-navbar-item"><a href="/account/login.php" class="header-link">LOGIN</a></li>
                             <?php else : ?>
@@ -41,7 +41,7 @@
                                         Hello,<?= $_SESSION['customer']['name'] ?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100%;text-align: center;">
-                                        <a class="dropdown-item header-link" href="#">Setting</a>
+                                        <a class="dropdown-item header-link" href="/account/setting.php">Setting</a>
                                         <a class="dropdown-item header-link" href="/account/logout.php?logout">Logout</a>
                                     </div>
                                 </li>

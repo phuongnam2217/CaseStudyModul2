@@ -5,9 +5,7 @@ if ($_SESSION['user'] == null) {
     header('location: /admin/templates/login.php');
 }
 // Get Products
-$getProducts = "SELECT * FROM products";
-$stmt = $pdo->query($getProducts);
-$products = $stmt->fetchAll();
+$products = $Pro->getAll();
 // Get Category
 $getCategory = "SELECT * FROM product_lines";
 $stmt = $pdo->query($getCategory);
@@ -24,10 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $image1 = $_POST['image1'];
     $image2 = $_POST['image2'];
     $stock = $_POST['stock'];
-
-    $queryAdd = "INSERT INTO products (product_name, product_line, slug, price , image1, image2, stock)
-    VALUES ('$product_name','$product_line','$slug','$price','$image1','$image2','$stock');";
-    $pdo->query($queryAdd);
-
+    $Pro->create($product_name, $product_line, $slug, $price, $image1, $image2, $stock, $description);
     // header("Location: display-product.php");
 }

@@ -2,7 +2,7 @@
 session_start();
 include __DIR__ . "/../cart/add-cart.php";
 // Tìm tổng số record
-$result = "SELECT count(product_id) as total FROM products WHERE product_line = 'Tops';";
+$result = "SELECT count(product_id) as total FROM products WHERE product_line = 'Accessories';";
 $row = $pdo->query($result);
 $row = $row->fetch();
 $total_records = $row['total'];
@@ -21,7 +21,8 @@ if ($current_page > $total_page) {
 // Tìm Start
 $start = ($current_page - 1) * $limit;
 // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
-$productTop = $Pro->getByCategory("Tops", $start, $limit);
+// Có limit và start rồi thì truy vấn CSDL lấy danh sách tin tức
+$productBottoms = $Pro->getByCategory("Accessories", $start, $limit);
 ?>
 <?php include __DIR__ . "/../layout/header.php"; ?>
 <div class="content">
@@ -29,7 +30,7 @@ $productTop = $Pro->getByCategory("Tops", $start, $limit);
         <div class="layout-arrival">
             <hr>
             <div class="arrival-product">
-                <?php foreach ($productTop as $value) : ?>
+                <?php foreach ($productBottoms as $value) : ?>
                     <div class="col-md-3 col-sm-6 col-xs-6 product-column">
                         <div class="product-top">
                             <a href="/products/<?= $value['slug'] ?>" class="product-link">
@@ -37,7 +38,7 @@ $productTop = $Pro->getByCategory("Tops", $start, $limit);
                                 <img class="product-img image2" src="<?= $value['image2'] ?>" alt="">
                             </a>
                             <div class="product-img-btn" id="img-btn">
-                                <a href="tops.php?id=<?= $value['product_id'] ?>" class="ajax-cart">Add to card</a>
+                                <a href="bottom.php?id=<?= $value['product_id'] ?>" class="ajax-cart">Add to card</a>
                             </div>
                         </div>
                         <div class="product-bot">
@@ -50,17 +51,17 @@ $productTop = $Pro->getByCategory("Tops", $start, $limit);
             <hr>
             <div class="pagination">
                 <?php if ($current_page > 1 && $total_page > 1) : ?>
-                    <a class="btn btn-outline-primary pagination-btn" href="tops.php?page=<?= $current_page - 1 ?>">Prev</a>
+                    <a class="btn btn-outline-primary pagination-btn" href="accessories.php?page=<?= $current_page - 1 ?>">Prev</a>
                 <?php endif; ?>
                 <?php for ($i = 1; $i <= $total_page; $i++) : ?>
                     <?php if ($i == $current_page) : ?>
-                        <span><a class="btn btn-outline-primary pagination-btn" href="tops.php?page=<?= $i ?>"><?= $i ?></a></span>
+                        <span><a class="btn btn-outline-primary pagination-btn" href="accessories.php?page=<?= $i ?>"><?= $i ?></a></span>
                     <?php else : ?>
-                        <a class="btn btn-outline-primary pagination-btn" href="tops.php?page=<?= $i ?>"><?= $i ?></a>
+                        <a class="btn btn-outline-primary pagination-btn" href="accessories.php?page=<?= $i ?>"><?= $i ?></a>
                     <?php endif; ?>
                 <?php endfor; ?>
                 <?php if ($current_page < $total_page && $total_page > 1) : ?>
-                    <a class="btn btn-outline-primary pagination-btn" href="tops.php?page=<?= $current_page + 1 ?>">Next</a>
+                    <a class="btn btn-outline-primary pagination-btn" href="accessories.php?page=<?= $current_page + 1 ?>">Next</a>
                 <?php endif; ?>
             </div>
         </div>

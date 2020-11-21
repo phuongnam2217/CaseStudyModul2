@@ -41,6 +41,8 @@
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 120px;">Tên sản phẩm</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 94px;">Dòng sản phẩm</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30px;">Giá</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30px;">Ảnh</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30px;">View</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 38px;">Đã bán</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 58px;">Số lượng</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 120px;"></th>
@@ -53,6 +55,8 @@
                                                 <td><?= $product['product_name'] ?></td>
                                                 <td><?= $product['product_line'] ?></td>
                                                 <td><?= $product['price'] ?><ins>đ</ins></td>
+                                                <td><img width="100%" src="<?= $product['image1'] ?>" alt=""> </td>
+                                                <td><?= $product['view'] ?></td>
                                                 <td>
                                                     <?= $product['sold'] ?>
                                                 </td>
