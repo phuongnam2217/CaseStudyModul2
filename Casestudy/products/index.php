@@ -1,10 +1,8 @@
-<?php include_once __DIR__ . '/../database/database.php';
+<?php require_once "../classes/ClassProduct.php";
 session_start();
-$product_id = $_SERVER['REQUEST_URI'];
-$array = explode("/", $product_id);
-$slug = $array[2];
-$product = $Pro->getSlug($slug);
-$Pro->increase("view", "slug", $slug);
+$product_id = $_GET['id'];
+$product = $Pro->getId($product_id);
+$Pro->increase("view", "product_id", $product_id);
 if (isset($_POST['product_id']) && isset($_POST['qty'])) {
     $id = $_POST['product_id'];
     $qty = $_POST['qty'];

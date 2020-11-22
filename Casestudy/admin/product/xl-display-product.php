@@ -1,16 +1,14 @@
 <?php
-include __DIR__ . '/../../database/database.php';
-
+require_once "../../classes/ClassProduct.php";
+require_once "../../classes/ClassCategory.php";
 // Get Products
 $products = $Pro->getAll();
 // Get Category
-$getCategory = "SELECT * FROM product_lines";
-$stmt = $pdo->query($getCategory);
-$categoryList = $stmt->fetchAll();
+
+$categoryList = $Cate->getAll();
 // Xóa Product
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $queryDelete = "DELETE FROM products WHERE product_id = '$id';";
-    $pdo->query($queryDelete);
+    $Pro->delete($id);
     header("Location: display-product.php");
 }

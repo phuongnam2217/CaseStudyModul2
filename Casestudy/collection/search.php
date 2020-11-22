@@ -1,6 +1,6 @@
-<?php include __DIR__ . "/../database/database.php";
+<?php require_once "../classes/ClassProduct.php";
 session_start();
-include __DIR__ . "/../cart/add-cart.php";
+require_once "../cart/add-cart.php";
 $search = isset($_POST['search']) ? $_POST['search'] : "";
 $products = $Pro->search($search);
 ?>

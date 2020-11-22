@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="/asset/css/main.css">
-    <link rel="stylesheet" href="/asset/css/base.css">
+    <link rel="stylesheet" href="../asset/css/main.css">
+    <link rel="stylesheet" href="../asset/css/base.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,700&display=swap" rel="stylesheet" />
     <title>CaseStudy Module 2</title>
@@ -34,7 +34,7 @@
                             <li class="nav-item header-navbar-item"><a href="../collection/accessories.php" class="header-link">ACCESSORIES</a></li>
                             <li class="nav-item header-navbar-item"><a href="../collection/aboutus.php" class="header-link">ABOUT US</a></li>
                             <?php if (!isset($_SESSION['customer'])) : ?>
-                                <li class="nav-item header-navbar-item"><a href="/account/login.php" class="header-link">LOGIN</a></li>
+                                <li class="nav-item header-navbar-item"><a href="../account/login.php" class="header-link">LOGIN</a></li>
                             <?php else : ?>
                                 <li class="nav-item dropdown mx-4">
                                     <a class="nav-link dropdown-toggle header-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +50,7 @@
                                 <div class="header-search-icon" id="search">
                                     <img width="20px" src="https://theme.hstatic.net/1000344185/1000478812/14/pic-search.png?v=379" alt="">
                                 </div>
-                                <form action="/collection/search.php" method="post">
+                                <form action="../collection/search.php" method="post">
                                     <div class="header-search-form" id="formsearch">
                                         <div class="header-search-input">
                                             <input type="text" name="search" class="header-search-input-input" placeholder="Tìm kiếm">
@@ -60,7 +60,7 @@
                                 </form>
                             </li>
                             <li class="nav-item header-navbar-item" id="header-input">
-                                <form action="/collection/search.php" method="post">
+                                <form action="../collection/search.php" method="post">
                                     <div class="header-search-input">
                                         <input type="text" name="search" class="header-input-input" placeholder="Tìm kiếm">
                                         <button type="submit" class="header-search-input-btn"><i class="fas fa-search header-search-input-icon"></i></button>
@@ -68,7 +68,7 @@
                                 </form>
                             </li>
                             <li class="nav-item header-navbar-item header-cart">
-                                <a href="/cart/" class="header-link header-cart-link">
+                                <a href="../cart/" class="header-link header-cart-link">
                                     <img class="header-cart-img" src="https://theme.hstatic.net/1000319111/1000411564/14/cart-icon.png?v=1032" alt="">
                                     <span class="header-cart-quality">
                                         <?php if (isset($_SESSION['cart'])) {

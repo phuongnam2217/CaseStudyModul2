@@ -1,4 +1,4 @@
-<?php require_once "../../database/database.php";
+<?php require_once "../../classes/ClassUser.php";
 
 $users = $userDB->getAll();
 if (isset($_GET['delete'])) {

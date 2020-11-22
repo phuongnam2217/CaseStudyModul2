@@ -1,6 +1,6 @@
 <?php
 
-
+require_once "database.php";
 
 class Product
 {
@@ -51,7 +51,7 @@ class Product
     }
     public function search($search)
     {
-        $query =    
+        $query = "SELECT * FROM products WHERE product_name LIKE '%$search%';";
         $stmt = $this->db->query($query);
         $products = $stmt->fetchAll();
         return $products;
@@ -111,3 +111,5 @@ class Product
         $this->db->query($query);
     }
 }
+
+$Pro = new Product($pdo);

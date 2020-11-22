@@ -1,5 +1,8 @@
 <?php
-include __DIR__ . "/../database/database.php";
+require_once "../classes/ClassCustomer.php";
+require_once "../classes/ClassOrder.php";
+require_once "../classes/classOrderDetail.php";
+require_once "../classes/ClassProduct.php";
 session_start();
 if (empty($_SESSION['customer'])) {
     header("Location: /account/login.php");

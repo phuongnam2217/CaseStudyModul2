@@ -1,6 +1,6 @@
-<?php include __DIR__ . "/../database/database.php";
+<?php include "../classes/ClassProduct.php";
 session_start();
-include __DIR__ . "/../cart/add-cart.php";
+require_once "../cart/add-cart.php";
 // Tìm tổng số record
 $result = "SELECT count(product_id) as total FROM products WHERE product_line = 'Bottoms';";
 $row = $pdo->query($result);

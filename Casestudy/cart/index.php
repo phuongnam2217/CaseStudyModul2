@@ -1,4 +1,4 @@
-<?php include_once __DIR__ . "/../database/database.php";
+<?php require_once "../classes/ClassProduct.php";
 session_start();
 if (isset($_GET['key'])) {
     $key = (int) $_GET['key'];

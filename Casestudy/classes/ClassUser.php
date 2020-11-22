@@ -1,5 +1,5 @@
 <?php
-
+require_once "database.php";
 class User
 {
     private $db;
@@ -62,3 +62,4 @@ class User
         return true;
     }
 }
+$userDB = new User($pdo);

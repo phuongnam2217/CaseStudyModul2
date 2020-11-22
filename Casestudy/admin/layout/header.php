@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['user'])) {
-    header('location: /admin/templates/login.php');
+    header('location: ../admin/templates/login.php');
 }
 
 ?>
@@ -15,14 +15,14 @@ if (empty($_SESSION['user'])) {
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
-    <link href="/../public/admin/css/styles.css" rel="stylesheet" />
+    <link href="../../public/admin/css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="/admin/index.php">Bảng điều khiển</a>
+        <a class="navbar-brand" href="../index.php">Bảng điều khiển</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -41,7 +41,7 @@ if (empty($_SESSION['user'])) {
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" href="#">Activity Log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/admin/templates/login.php?logout">Logout</a>
+                    <a class="dropdown-item" href="../../admin/templates/login.php?logout">Logout</a>
                 </div>
             </li>
         </ul>
@@ -52,22 +52,22 @@ if (empty($_SESSION['user'])) {
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link collapsed" href="/admin/user/index.php">
+                        <a class="nav-link collapsed" href="../../admin/user/index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                             Users Admin
                             <div class="sb-sidenav-collapse-arrow"></div>
                         </a>
-                        <a class="nav-link collapsed" href="/admin/customer/display-customer.php">
+                        <a class="nav-link collapsed" href="../../admin/customer/display-customer.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                             Customers
                             <div class="sb-sidenav-collapse-arrow"></div>
                         </a>
-                        <a class="nav-link collapsed" href="/admin/product/display-product.php">
+                        <a class="nav-link collapsed" href="../../admin/product/display-product.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                             Products
                             <div class="sb-sidenav-collapse-arrow"></div>
                         </a>
-                        <a class="nav-link collapsed" href="/admin/category/display-category.php">
+                        <a class="nav-link collapsed" href="../../admin/category/display-category.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                             Category
                             <div class="sb-sidenav-collapse-arrow"></div>
@@ -79,10 +79,10 @@ if (empty($_SESSION['user'])) {
                         </a>
                         <div class="collapse" id="order" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/admin/order/display-order.php">Order Đang Chờ</a>
-                                <a class="nav-link" href="/admin/order/order-ship.php">Order Đã duyệt</a>
-                                <a class="nav-link" href="/admin/order/order-success.php">Order Thành Công</a>
-                                <a class="nav-link" href="/admin/order/order-canceled.php">Order Đã Hủy</a>
+                                <a class="nav-link" href="../../admin/order/display-order.php">Order Đang Chờ</a>
+                                <a class="nav-link" href="../../admin/order/order-ship.php">Order Đã duyệt</a>
+                                <a class="nav-link" href="../../admin/order/order-success.php">Order Thành Công</a>
+                                <a class="nav-link" href="../../admin/order/order-canceled.php">Order Đã Hủy</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#">

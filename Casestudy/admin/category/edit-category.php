@@ -1,4 +1,4 @@
-<?php include_once __DIR__ . "/../../database/database.php";
+<?php require_once "../../classes/ClassCategory.php";
 
 $editName = $_GET['EditCategory'];
 

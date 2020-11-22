@@ -1,5 +1,5 @@
 <?php
-require_once "../database/database.php";
+require_once "../classes/ClassCustomer.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

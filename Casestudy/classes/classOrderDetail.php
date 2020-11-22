@@ -1,5 +1,5 @@
 <?php
-
+require_once "database.php";
 class OrderDetail
 {
     private $db;
@@ -19,7 +19,7 @@ class OrderDetail
         $stmt->execute();
         return true;
     }
-    
+
     public function getAll()
     {
         $query = "SELECT customers.name,orders.order_id,orders.status,orderdetails.product_id,orderdetails.quantityOrdered,orderdetails.priceEach,(orderdetails.quantityOrdered*orderdetails.priceEach) as total 
@@ -47,3 +47,4 @@ class OrderDetail
         return true;
     }
 }
+$orderDetailDB = new OrderDetail($pdo);

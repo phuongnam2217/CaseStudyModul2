@@ -1,12 +1,10 @@
 <?php
-include __DIR__ . "/../database/database.php";
+require_once "../classes/ClassCustomer.php";
 session_start();
 if (isset($_POST['loginemail']) && isset($_POST['loginpass']))
     $email = $_POST['loginemail'];
 $pass = $_POST['loginpass'];
-$query = "SELECT * FROM customers";
-$stmt = $pdo->query($query);
-$customers = $stmt->fetchAll();
+$customers = $customerDB->getAll();
 foreach ($customers as $customer) {
     if ($email == $customer['email'] && password_verify($pass, $customer['password'])) {
         $_SESSION['customer'] = $customer;

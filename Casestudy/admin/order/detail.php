@@ -1,4 +1,8 @@
-<?php require "../../database/database.php";
+<?php
+require_once "../../classes/ClassOrder.php";
+require_once "../../classes/classOrderDetail.php";
+require_once "../../classes/ClassProduct.php";
+
 
 if (isset($_GET['order_id'])) {
     $order_id = $_GET['order_id'];

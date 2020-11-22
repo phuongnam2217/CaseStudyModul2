@@ -1,5 +1,5 @@
 <?php
-
+require_once "database.php";
 class Order
 {
     private $db;
@@ -89,3 +89,4 @@ class Order
         return $this->db->lastInsertId();
     }
 }
+$orderDB = new Order($pdo);

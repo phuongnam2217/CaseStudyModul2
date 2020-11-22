@@ -1,5 +1,5 @@
 <?php
-
+require_once "database.php";
 class Category
 {
     private $db;
@@ -47,3 +47,4 @@ class Category
         $stmt->execute();
     }
 }
+$Cate = new Category($pdo);

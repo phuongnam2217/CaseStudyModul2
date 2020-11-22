@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../../database/database.php';
+require_once "../../classes/ClassCategory.php";
 // Get Category List
 
 $categoryList = $Cate->getAll();

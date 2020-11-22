@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . "/../../database/database.php";
+<?php require_once "../../classes/ClassCustomer.php";
 
 // GetAll customers
 $customers = $customerDB->getAll();

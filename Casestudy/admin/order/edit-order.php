@@ -1,5 +1,6 @@
 <?php
-require_once "../../database/database.php";
+require_once "../../classes/ClassOrder.php";
+require_once "../../classes/classOrderDetail.php";
 
 if (isset($_GET['order_id'])) {
     $order_id = $_GET['order_id'];

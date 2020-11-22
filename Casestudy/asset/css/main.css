@@ -381,7 +381,11 @@
   padding: 10px 0;
   display: block;
 }
-
+@media (max-width: 996px) {
+  #navbarMenu ul {
+    height: 100vh;
+  }
+}
 @media (max-width: 800px) {
   .product-column {
     flex: 50%;

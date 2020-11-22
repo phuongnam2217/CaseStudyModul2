@@ -1,15 +1,10 @@
 <?php
-include __DIR__ . '/../../database/database.php';
-session_start();
-if ($_SESSION['user'] == null) {
-    header('location: /admin/templates/login.php');
-}
+require_once "../../classes/ClassProduct.php";
+require_once "../../classes/ClassCategory.php";
 // Get Products
 $products = $Pro->getAll();
 // Get Category
-$getCategory = "SELECT * FROM product_lines";
-$stmt = $pdo->query($getCategory);
-$categoryList = $stmt->fetchAll();
+$categoryList = $Cate->getAll();
 
 // Add Product
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

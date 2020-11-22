@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if (isset($_SESSION['user'])) {
-        header('Location: /admin/index.php');
+        header('Location: /../admin/index.php');
     } else {
         echo "<script>alert('Tài khoản và mật khẩu chưa đúng')</script>";
     }

@@ -24,7 +24,7 @@
                                     <p><?= $product['product_name'] ?></p>
                                 </td>
                                 <td>
-                                    <a href="/products/<?= $product['slug'] ?>">
+                                    <a href="../products/index.php?id=<?= $product['product_id'] ?>">
                                         <img style="width:100px" src="<?= $product['image1'] ?>" alt="">
                                     </a>
                                 </td>
@@ -59,10 +59,10 @@
             </div>
             <div class="cart-payment d-flex justify-content-around py-5">
                 <div class="card-continue">
-                    <a href="/index" class="btn insert-cart">Tiếp tục mua</a>
+                    <a href="../index" class="btn insert-cart">Tiếp tục mua</a>
                 </div>
                 <div class="card-pay">
-                    <a href="/checkout/" class="btn btn insert-cart">Thanh toán</a>
+                    <a href="../checkout/" class="btn btn insert-cart">Thanh toán</a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-
+require_once "database.php";
 class Customer
 {
     private $db;
@@ -67,3 +67,4 @@ class Customer
         return $this->db->lastInsertId();
     }
 }
+$customerDB = new Customer($pdo);

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . "/../database/database.php";
+require_once "../classes/ClassCustomer.php";
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
