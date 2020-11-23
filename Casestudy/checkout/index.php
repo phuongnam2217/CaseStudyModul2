@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" name="phone" value="<?= $_SESSION['customer']['phone'] ?>" class="form-control form-control-lg form-input" id="exampleInputPassword1" placeholder="Số điên thoại đã lưu" required>
                     </div>
                     <div class="">
-                        <a href="/cart/" style="font-size: 1.5rem;">Quay lại giỏ hàng</a>
+                        <a href="../cart/" style="font-size: 1.5rem;">Quay lại giỏ hàng</a>
                     </div>
                     <div class="p3" style="font-size: 1.6rem;color:red">
                         <h3>

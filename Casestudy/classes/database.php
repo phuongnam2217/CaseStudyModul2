@@ -2,9 +2,9 @@
 
 
 $user = 'root';
-$password = '';
+$password = 'anhnamkute1';
 $host = 'localhost';
-$dbname = 'casestudy2';
+$dbname = 'casestudy';
 $dns = 'mysql:host=' . $host . ';dbname=' . $dbname;
 $pdo = new PDO($dns, $user, $password);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -28,4 +28,3 @@ function slugify($str)
 // $orderDB = new Order($pdo);
 // $orderDetailDB = new OrderDetail($pdo);
 // $userDB = new User($pdo);
-?>
